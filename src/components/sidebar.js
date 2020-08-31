@@ -14,7 +14,9 @@ class SideBar extends React.Component {
       <nav>
         <h1>Vmovie</h1>
         <ul>
-          <li>MOVIES</li>
+          <Link to={'/MovieList'}>
+            <li>MOVIES</li>
+          </Link>
           <li>LOCATIONS</li>
           <li>SHOP</li>
           <li>TICKETS</li>

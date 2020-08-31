@@ -4,15 +4,18 @@ import {
 } from 'react-router-dom';
 import Login from './login';
 import SideBar from './sidebar';
+import Movies from './movies'
 
 const App = () => (
   <Router>
-    <Switch>
+    
       <div className="app">
-        <Route exact path='/'><Login /></Route>
-      <Route exact path='/Movies'><SideBar /></Route>
+        {/* <Route exact path='/'><Login /></Route> */}
+        <SideBar />
+        <Switch>
+          <Route exact path='/MovieList'><Movies /></Route>
+        </Switch>
       </div>
-    </Switch>
   </Router>
 );
 export default App;
