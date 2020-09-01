@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import Login from './login';
 import SideBar from './sidebar';
-import Movies from './movies'
+import LatestMovies from './latestMovies'
 
 const App = () => (
   <Router>
@@ -13,7 +13,7 @@ const App = () => (
         {/* <Route exact path='/'><Login /></Route> */}
         <SideBar />
         <Switch>
-          <Route exact path='/MovieList'><Movies /></Route>
+          <Route exact path='/MovieList'><LatestMovies /></Route>
         </Switch>
       </div>
   </Router>

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Pacifico&family=Poppins:wght@500;600;700&display=swap');
 
+/* stylelint-disable no-descending-specificity */
+
 $greenColor: #97be10;
 $orangeColor: #ffb400;
 $grayColor: #393939;
@@ -31,6 +33,11 @@ $mainGray: #141414;
   list-style: none;
   flex-direction: column;
   cursor: pointer;
+}
+
+@mixin hoverStyle {
+  cursor: pointer;
+  background-color: $greenColor;
 }
 
 html,
@@ -78,7 +85,7 @@ nav {
   color: $grayColor;
 
   h1 {
-    padding: $padding15;
+    padding-left: $padding15;
     font-family: 'Pacifico', cursive;
     font-size: 35px;
     transform: rotate(-10deg);
@@ -87,7 +94,7 @@ nav {
   ul {
     @include listStyle;
 
-    margin-top: -120px;
+    margin-top: -205px;
   }
 
   li {
@@ -105,21 +112,43 @@ nav {
   }
 }
 
-.movieMenu {
+#movie {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 150px 0;
-  width: 100%;
-  color: $mainGray;
 
-  h1 {
-    letter-spacing: 5px;
-    font-weight: 700;
+  h3 {
+    padding: $padding15;
+    border-bottom: 1px solid $bgColor;
+  }
+
+  #movieImg {
+    border-radius: 100px;
+    background-color: $bgColor;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 200px;
+    }
+  }
+
+  #movieImg:hover {
+    @include hoverStyle;
   }
 
   span {
-    color: $lightGray;
+    padding: $padding15;
+    font-size: 12px;
+  }
+
+  #social {
+    :nth-child(2) {
+      margin: 0 5px;
+    }
   }
 }
 
@@ -143,5 +172,54 @@ nav {
     align-items: center;
 
     @include buttonStyle;
+  }
+}
+
+.movieMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px 0;
+  width: 100%;
+  color: $mainGray;
+
+  h1 {
+    letter-spacing: 5px;
+    font-weight: 700;
+  }
+
+  span {
+    color: $lightGray;
+  }
+
+  #movieSet {
+    display: flex;
+    width: 100%;
+    padding: 40px 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    button {
+      border: none;
+      background-color: $bgColor;
+      margin-top: 80px;
+    }
+
+    #leftSide {
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+      padding: 20px 20px 20px 40px;
+    }
+
+    #rightSide {
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      padding: 20px 40px 20px 20px;
+    }
+
+    button:hover {
+      @include hoverStyle;
+    }
   }
 }
