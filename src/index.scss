@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Pacifico&family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Pacifico&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@500;600;700;800;900&display=swap');
 
 /* stylelint-disable no-descending-specificity */
 
@@ -120,6 +120,10 @@ nav {
   h3 {
     padding: $padding15;
     border-bottom: 1px solid $bgColor;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 1px;
   }
 
   #movieImg {
@@ -185,7 +189,8 @@ nav {
 
   h1 {
     letter-spacing: 5px;
-    font-weight: 700;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
   }
 
   span {
@@ -220,6 +225,76 @@ nav {
 
     button:hover {
       @include hoverStyle;
+    }
+  }
+}
+
+#details {
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+  width: 100%;
+  color: #141414;
+  height: 100%;
+
+  #dImage {
+    width: 60%;
+    height: inherit;
+    text-align: center;
+
+    img {
+      width: 70%;
+    }
+  }
+
+  #payingDetail {
+    width: 40%;
+    height: inherit;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+      align-items: center;
+    }
+
+    span {
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    #bgGray {
+      background-color: $bgColor;
+    }
+
+    button {
+      @include buttonStyle;
+
+      align-self: flex-end;
+      margin-top: 50px;
+    }
+  }
+
+  #payingDetail div:first-child {
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0;
+    margin-bottom: 40px;
+  }
+
+  #payingDetail :nth-child(6) {
+    justify-content: flex-start;
+
+    :first-child {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    > * {
+      font-size: 13px;
     }
   }
 }

@@ -5,38 +5,35 @@ import { Icon, InlineIcon } from '@iconify/react';
 import triangleStroked11 from '@iconify/icons-maki/triangle-stroked-11';
 
 class LatestMovies extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      movies: [
-        {
-          movieName: 'Movie 1',
-          movieImg: 'http://joseignaciofilmfestival.com/wp-content/uploads/2019/12/parasite_Mesa-de-trabajo-1-copia.jpg',
-          movieDesc: 'Movie Desc 1',
-          movieLitDesc: 'Movie Lit Desc 1',
-          moviePrice: '$ 10.00',
-          movieDate: '15-10-2020'
-        },
-        {
-          movieName: 'Movie 2',
-          movieImg: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/joker-poster-1567070106.jpg',
-          movieDesc: 'Movie Desc 2',
-          movieLitDesc: 'Movie Lit Desc 2',
-          moviePrice: '$ 10.00',
-          movieDate: '15-10-2020'
-        },
-        {
-          movieName: 'Movie 3',
-          movieImg: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/joker-poster-1567070106.jpg',
-          movieDesc: 'Movie Desc 3',
-          movieLitDesc: 'Movie Lit Desc 3',
-          moviePrice: '$ 10.00',
-          movieDate: '15-10-2020'
-        }
-      ]
-    }
-    
+  state = {
+    movies: [
+      {
+        movieName: 'PARASITE',
+        movieImg: 'http://joseignaciofilmfestival.com/wp-content/uploads/2019/12/parasite_Mesa-de-trabajo-1-copia.jpg',
+        movieDesc: 'Movie Desc 1',
+        movieLitDesc: 'Movie Lit Desc 1',
+        moviePrice: '$ 10.00',
+        movieDate: '15-10-2020'
+      },
+      {
+        movieName: 'JOKER',
+        movieImg: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/joker-poster-1567070106.jpg',
+        movieDesc: 'Movie Desc 2',
+        movieLitDesc: 'Movie Lit Desc 2',
+        moviePrice: '$ 10.00',
+        movieDate: '15-10-2020'
+      },
+      {
+        movieName: 'IT',
+        movieImg: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/joker-poster-1567070106.jpg',
+        movieDesc: 'Movie Desc 3',
+        movieLitDesc: 'Movie Lit Desc 3',
+        moviePrice: '$ 10.00',
+        movieDate: '15-10-2020'
+      }
+    ]
   }
+
   render() {
     return(
       <div className="movieMenu">
