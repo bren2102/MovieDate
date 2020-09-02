@@ -6,6 +6,7 @@ import Login from './login';
 import SideBar from './sidebar';
 import LatestMovies from './latestMovies'
 import Detail from './detail';
+import Appointment from './appointment';
 
 const App = () => (
   <Router>
@@ -16,6 +17,7 @@ const App = () => (
         <Switch>
           <Route exact path='/MovieList'><LatestMovies /></Route>
           <Route exact path='/:name'><Detail /></Route>
+          <Route exact path='/:name/appointment'><Appointment /></Route>
         </Switch>
       </div>
   </Router>

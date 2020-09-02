@@ -3,6 +3,7 @@
 /* stylelint-disable no-descending-specificity */
 
 $greenColor: #97be10;
+$greenColorTransparent: #98be1077;
 $orangeColor: #ffb400;
 $grayColor: #393939;
 $padding15: 15px;
@@ -296,5 +297,28 @@ nav {
     > * {
       font-size: 13px;
     }
+  }
+}
+
+#appointment {
+  width: inherit;
+  position: absolute;
+  background-color: $greenColor;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  h1 {
+    letter-spacing: 5px;
+  }
+
+  button {
+    @include buttonStyle;
+
+    background-color: white;
+    color: $greenColor;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const Details = (props) => {
   const { name } = props.match.params;
@@ -33,7 +33,10 @@ const Details = (props) => {
         <div>
           <span>5.9%APR</span><span>Representative</span>
         </div>
-        <button>Book Now</button>
+        <input type="date" data-date-inline-picker="true"></input>
+        <Link to={`/${name}/appointment`}>
+          <button>Book Now</button>
+        </Link>
       </div>
     </div>
   )
