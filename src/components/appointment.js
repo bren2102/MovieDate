@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Icon, InlineIcon } from '@iconify/react';
-import xPack from '@iconify/icons-cib/x-pack';
+import bxX from '@iconify/icons-bx/bx-x';
 
 class Appointment extends React.Component {
   state = {
@@ -12,7 +12,9 @@ class Appointment extends React.Component {
     const citiesUrl = '/cities';
     axios.get(citiesUrl)
       .then(data => {
-        this.setState ({cities: data.data,})
+        this.setState ({
+          cities: data.data,
+        })
       });
   }
 
@@ -22,7 +24,7 @@ class Appointment extends React.Component {
     return (
       <div id="appointment">
         <Link to={`/${name}`} style={{ display: 'flex', alignSelf: 'flex-end', }}>
-          <Icon icon={xPack} style={{ color: 'white', fontSize: '30px', }} />
+          <Icon icon={bxX}  style={{ color: 'white', fontSize: '45px', }} />
         </Link>
         <h1>BOOK YOUR MOVIE DATE</h1>
         {name}

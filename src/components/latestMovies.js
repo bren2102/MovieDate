@@ -8,21 +8,21 @@ class LatestMovies extends React.Component {
   state = {
     movies: [
       {
-        movieName: 'PARASITE',
+        movieName: 'Parasite',
         movieImg: 'http://joseignaciofilmfestival.com/wp-content/uploads/2019/12/parasite_Mesa-de-trabajo-1-copia.jpg',
         movieDesc: 'South Korean black comedy thriller',
         moviePrice: '$ 10.00',
         movieDate: '15-10-2020'
       },
       {
-        movieName: 'JOKER',
+        movieName: 'Joker',
         movieImg: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/joker-poster-1567070106.jpg',
         movieDesc: 'American psychological thriller',
         moviePrice: '$ 10.00',
         movieDate: '15-10-2020'
       },
       {
-        movieName: 'IT',
+        movieName: 'It',
         movieImg: 'http://es.web.img3.acsta.net/r_1280_720/pictures/19/07/30/09/09/0763744.jpg',
         movieDesc: 'American supernatural horror film',
         moviePrice: '$ 10.00',
@@ -41,7 +41,7 @@ class LatestMovies extends React.Component {
             <Icon icon={triangleStroked11} style={{ color: 'white', fontSize: '20px' }} hFlip={true} vFlip={true} rotate="90deg" />
           </button>
           {this.state.movies.map(
-            movie => <Movie name={movie.movieName} image={movie.movieImg} desc={movie.movieDesc}/>
+            movie => <Movie name={movie.movieName} key={movie.movieName} image={movie.movieImg} desc={movie.movieDesc}/>
           )}
           <button id="rightSide">
             <Icon icon={triangleStroked11} style={{ color: 'white', fontSize: '20px' }} vFlip={true} rotate="270deg" />
