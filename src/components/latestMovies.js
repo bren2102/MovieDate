@@ -10,24 +10,21 @@ class LatestMovies extends React.Component {
       {
         movieName: 'PARASITE',
         movieImg: 'http://joseignaciofilmfestival.com/wp-content/uploads/2019/12/parasite_Mesa-de-trabajo-1-copia.jpg',
-        movieDesc: 'Movie Desc 1',
-        movieLitDesc: 'Movie Lit Desc 1',
+        movieDesc: 'South Korean black comedy thriller',
         moviePrice: '$ 10.00',
         movieDate: '15-10-2020'
       },
       {
         movieName: 'JOKER',
         movieImg: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/joker-poster-1567070106.jpg',
-        movieDesc: 'Movie Desc 2',
-        movieLitDesc: 'Movie Lit Desc 2',
+        movieDesc: 'American psychological thriller',
         moviePrice: '$ 10.00',
         movieDate: '15-10-2020'
       },
       {
         movieName: 'IT',
-        movieImg: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/joker-poster-1567070106.jpg',
-        movieDesc: 'Movie Desc 3',
-        movieLitDesc: 'Movie Lit Desc 3',
+        movieImg: 'http://es.web.img3.acsta.net/r_1280_720/pictures/19/07/30/09/09/0763744.jpg',
+        movieDesc: 'American supernatural horror film',
         moviePrice: '$ 10.00',
         movieDate: '15-10-2020'
       }
@@ -44,7 +41,7 @@ class LatestMovies extends React.Component {
             <Icon icon={triangleStroked11} style={{ color: 'white', fontSize: '20px' }} hFlip={true} vFlip={true} rotate="90deg" />
           </button>
           {this.state.movies.map(
-            movie => <Movie name={movie.movieName} image={movie.movieImg} desc={movie.movieLitDesc}/>
+            movie => <Movie name={movie.movieName} image={movie.movieImg} desc={movie.movieDesc}/>
           )}
           <button id="rightSide">
             <Icon icon={triangleStroked11} style={{ color: 'white', fontSize: '20px' }} vFlip={true} rotate="270deg" />

@@ -33,8 +33,9 @@ const Details = (props) => {
         <div>
           <span>5.9%APR</span><span>Representative</span>
         </div>
+        <span>Choose a date:</span>
         <input type="date" data-date-inline-picker="true"></input>
-        <Link to={`/${name}/appointment`}>
+        <Link to={`/${name}/appointment`} style={{display: 'flex', justifyContent: 'flex-end', }}>
           <button>Book Now</button>
         </Link>
       </div>
