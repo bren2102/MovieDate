@@ -28,11 +28,11 @@ class Details extends React.Component {
     return (
       <div id="details">
         <div id="dImage">
-          <img src={movieDetail.image} />
+          <img src={movieDetail.image} alt={movieDetail.name}/>
         </div>
         <div id="payingDetail">
           <div>
-            <h2>{movieDetail.name.toUpperCase()}</h2>
+            <h2>{movieDetail.name}</h2>
             <span>{movieDetail.description}</span>
           </div>
           <div id="bgGray">
@@ -56,8 +56,8 @@ class Details extends React.Component {
           </div>
           <span>Choose a date:</span>
           <input type="date" data-date-inline-picker="true"></input>
-          <Link to={`/${movieDetail.name}/appointment`} style={{display: 'flex', justifyContent: 'flex-end', }}>
-            <button>Book Now</button>
+          <Link to={`/${movieDetail.name}/appointment`} >
+            Confirm
           </Link>
         </div>
       </div>

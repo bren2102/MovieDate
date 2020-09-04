@@ -1,6 +1,5 @@
 import React from 'react';
-import Proptypes from 'prop-types';
-import { Icon, InlineIcon } from '@iconify/react';
+import { Icon } from '@iconify/react';
 import { withRouter, Link } from 'react-router-dom';
 import logoTwitter from '@iconify/icons-carbon/logo-twitter';
 import scFacebook from '@iconify/icons-ei/sc-facebook';

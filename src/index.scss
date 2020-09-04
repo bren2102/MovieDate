@@ -305,10 +305,11 @@ nav {
       font-size: 12px;
     }
 
-    button {
+    a {
       @include buttonStyle;
 
       margin-top: 50px;
+      text-align: center;
     }
   }
 

@@ -1,37 +1,27 @@
-import React, { useState } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Movie from './movie';
-import { Icon, InlineIcon } from '@iconify/react';
+import axios from 'axios';
+import { Icon } from '@iconify/react';
 import triangleStroked11 from '@iconify/icons-maki/triangle-stroked-11';
 
 class LatestMovies extends React.Component {
   state = {
-    movies: [
-      {
-        movieName: 'Parasite',
-        movieImg: 'http://joseignaciofilmfestival.com/wp-content/uploads/2019/12/parasite_Mesa-de-trabajo-1-copia.jpg',
-        movieDesc: 'South Korean black comedy thriller',
-        moviePrice: '$ 10.00',
-        movieDate: '15-10-2020'
-      },
-      {
-        movieName: 'Joker',
-        movieImg: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/joker-poster-1567070106.jpg',
-        movieDesc: 'American psychological thriller',
-        moviePrice: '$ 10.00',
-        movieDate: '15-10-2020'
-      },
-      {
-        movieName: 'It',
-        movieImg: 'http://es.web.img3.acsta.net/r_1280_720/pictures/19/07/30/09/09/0763744.jpg',
-        movieDesc: 'American supernatural horror film',
-        moviePrice: '$ 10.00',
-        movieDate: '15-10-2020'
-      }
-    ]
+    movies: [],
+  }
+
+  componentDidMount() {
+    const moviesUrl = '/movies';
+    axios.get(moviesUrl)
+      .then(data => {
+        this.setState({
+          movies: data.data,
+        })
+      });
   }
 
   render() {
+    const { movies } =  this.state;
     return(
       <div className="movieMenu">
         <h1>LATEST MOVIES</h1>
@@ -40,8 +30,8 @@ class LatestMovies extends React.Component {
           <button id="leftSide">
             <Icon icon={triangleStroked11} style={{ color: 'white', fontSize: '20px' }} hFlip={true} vFlip={true} rotate="90deg" />
           </button>
-          {this.state.movies.map(
-            movie => <Movie name={movie.movieName.toUpperCase()} key={movie.movieName} image={movie.movieImg} desc={movie.movieDesc}/>
+          {movies.map(
+            movie => <Movie name={movie.name} key={movie.name} image={movie.image} desc={movie.description}/>
           )}
           <button id="rightSide">
             <Icon icon={triangleStroked11} style={{ color: 'white', fontSize: '20px' }} vFlip={true} rotate="270deg" />
