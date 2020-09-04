@@ -32,7 +32,7 @@ class Details extends React.Component {
         </div>
         <div id="payingDetail">
           <div>
-            <h2>{movieDetail.name}</h2>
+            <h2>{movieDetail.name.toUpperCase()}</h2>
             <span>{movieDetail.description}</span>
           </div>
           <div id="bgGray">

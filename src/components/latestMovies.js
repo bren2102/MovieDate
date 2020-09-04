@@ -41,7 +41,7 @@ class LatestMovies extends React.Component {
             <Icon icon={triangleStroked11} style={{ color: 'white', fontSize: '20px' }} hFlip={true} vFlip={true} rotate="90deg" />
           </button>
           {this.state.movies.map(
-            movie => <Movie name={movie.movieName} key={movie.movieName} image={movie.movieImg} desc={movie.movieDesc}/>
+            movie => <Movie name={movie.movieName.toUpperCase()} key={movie.movieName} image={movie.movieImg} desc={movie.movieDesc}/>
           )}
           <button id="rightSide">
             <Icon icon={triangleStroked11} style={{ color: 'white', fontSize: '20px' }} vFlip={true} rotate="270deg" />

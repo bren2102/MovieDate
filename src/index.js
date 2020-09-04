@@ -10,7 +10,7 @@ const store = createStore(rootReducer,
   {
     movies: [],
     appointments: [],
-    users: [],
+    currentUser: [],
   });
 
 ReactDOM.render(
