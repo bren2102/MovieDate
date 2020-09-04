@@ -5,6 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 class Details extends React.Component {
   state = {
     movieDetail: [],
+    price: '',
   }
 
   componentDidMount() {
@@ -14,12 +15,16 @@ class Details extends React.Component {
       .then(data => {
         this.setState({
           movieDetail: data.data[0],
+          price: data.data[0].price,
         })
       })
   }
 
   render() {
-    const {movieDetail} = this.state;
+    const {movieDetail, price} = this.state;
+    const fee = parseFloat("2.30");
+    const moviePrice = parseFloat(price);
+    const total = (moviePrice + fee).toFixed(2);
     return (
       <div id="details">
         <div id="dImage">
@@ -32,15 +37,15 @@ class Details extends React.Component {
           </div>
           <div id="bgGray">
             <span>Tax Fee</span>
-            <span>$ 2.50</span>
+            <span>$ {fee.toFixed(2)}</span>
           </div>
           <div>
-            <span>Option to purchase Fee</span>
-            <span>$ 3.00</span>
+            <span>Ticket price</span>
+            <span>$ {moviePrice.toFixed(2)}</span>
           </div>
           <div id="bgGray">
             <span>Total amount payable</span>
-            <span>$ {movieDetail.price}</span>
+            <span>$ {total}</span>
           </div>
           <div>
             <span>Duration</span>

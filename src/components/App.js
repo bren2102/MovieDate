@@ -10,12 +10,11 @@ import Appointment from './appointment';
 
 const App = () => (
   <Router>
-    
       <div className="app">
-        {/* <Route exact path='/'><Login /></Route> */}
         <SideBar />
         <Switch>
-          <Route exact path='/MovieList'><LatestMovies /></Route>
+          <Route exact path='/'><Login /></Route>
+          <Route exact path='/Movies'><LatestMovies /></Route>
           <Route exact path='/:name'><Detail /></Route>
           <Route exact path='/:name/appointment'><Appointment /></Route>
         </Switch>

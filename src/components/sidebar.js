@@ -19,16 +19,16 @@ class SideBar extends React.Component {
             <li>MOVIES</li>
           </Link>
           <li>LOCATIONS</li>
-          <li>SHOP</li>
+          <li>SNACKS</li>
           <li>TICKETS</li>
         </ul>
         <div>
           <div id="icon">
-            <Icon icon={logoTwitter} style={{ color: '#484848', fontSize: '25px' }} />
-            <Icon icon={scFacebook} style={{ color: '#484848', fontSize: '25px' }} />
-            <Icon icon={googlePlus} style={{ color: '#484848', fontSize: '20px' }} />
-            <Icon icon={scVimeo} style={{ color: '#484848', fontSize: '25px' }} />
-            <Icon icon={bxlPinterestAlt} style={{ color: '#484848', fontSize: '25px' }} />
+            <Icon icon={logoTwitter} style={{ color: '#484848', fontSize: '25px', }} />
+            <Icon icon={scFacebook} style={{ color: '#484848', fontSize: '25px', }} />
+            <Icon icon={googlePlus} style={{ color: '#484848', fontSize: '20px', }} />
+            <Icon icon={scVimeo} style={{ color: '#484848', fontSize: '25px', }} />
+            <Icon icon={bxlPinterestAlt} style={{ color: '#484848', fontSize: '25px', }} />
           </div>
           <span id="copyright">&copy; 2020 Rights reserved</span>
         </div>

@@ -18,9 +18,9 @@ const Movie = (props) => {
       <h3>{name}</h3>
       <span>{desc}</span>
       <div id="social">
-        <Icon icon={facebookCircle} style={{ color: '#f1f1f1', fontSize: '30px' }} />
-        <Icon icon={twitterCircle} style={{ color: '#f1f1f1', fontSize: '30px' }} />
-        <Icon icon={pinterestCircle} style={{ color: '#f1f1f1', fontSize: '30px' }} />
+        <Icon icon={facebookCircle} style={{ color: '#f1f1f1', fontSize: '30px', }} />
+        <Icon icon={twitterCircle} style={{ color: '#f1f1f1', fontSize: '30px', }} />
+        <Icon icon={pinterestCircle} style={{ color: '#f1f1f1', fontSize: '30px', }} />
       </div>
     </div>
   )

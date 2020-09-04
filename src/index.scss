@@ -157,6 +157,7 @@ nav {
   span {
     padding: $padding15;
     font-size: 12px;
+    text-align: center;
   }
 
   #social {
@@ -174,6 +175,8 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  width: inherit;
 
   h1 {
     font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -186,6 +189,21 @@ nav {
     align-items: center;
 
     @include buttonStyle;
+  }
+
+  input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $bgColor;
+    color: white;
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
   }
 }
 
