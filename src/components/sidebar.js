@@ -19,7 +19,9 @@ class SideBar extends React.Component {
           </Link>
           <li>LOCATIONS</li>
           <li>SNACKS</li>
-          <li>TICKETS</li>
+          <Link to={'/Tickets'}>
+            <li>TICKETS</li>
+          </Link>
         </ul>
         <div>
           <div id="icon">

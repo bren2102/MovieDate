@@ -6,7 +6,7 @@ import Login from './login';
 import SideBar from './sidebar';
 import LatestMovies from './latestMovies'
 import Detail from './detail';
-import Appointment from './appointment';
+import TicketAppointment from '../containers/ticketAppointment';
 
 const App = () => (
   <Router>
@@ -15,8 +15,8 @@ const App = () => (
         <Switch>
           <Route exact path='/'><Login /></Route>
           <Route exact path='/Movies'><LatestMovies /></Route>
+          <Route exact path='/Tickets'><TicketAppointment /></Route>
           <Route exact path='/:name'><Detail /></Route>
-          <Route exact path='/:name/appointment'><Appointment /></Route>
         </Switch>
       </div>
   </Router>

@@ -6,6 +6,7 @@ class Details extends React.Component {
   state = {
     movieDetail: [],
     price: '',
+    cities: [],
   }
 
   componentDidMount() {
@@ -18,10 +19,17 @@ class Details extends React.Component {
           price: data.data[0].price,
         })
       })
+    const citiesUrl = '/cities';
+    axios.get(citiesUrl)
+      .then(data => {
+        this.setState({
+          cities: data.data,
+        })
+      });
   }
 
   render() {
-    const {movieDetail, price} = this.state;
+    const {movieDetail, price, cities } = this.state;
     const fee = parseFloat("2.30");
     const moviePrice = parseFloat(price);
     const total = (moviePrice + fee).toFixed(2);
@@ -56,8 +64,14 @@ class Details extends React.Component {
           </div>
           <span>Choose a date:</span>
           <input type="date" data-date-inline-picker="true"></input>
-          <Link to={`/${movieDetail.name}/appointment`} >
-            Confirm
+          <span>Choose a city:</span>
+          <select name="cities" id="cities">
+            {cities.map(city =>
+              <option value={city.name} key={city.name}>{city.name}</option>
+            )}
+          </select>
+          <Link to={'/Tickets'} >
+            Book Now
           </Link>
         </div>
       </div>
