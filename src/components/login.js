@@ -14,24 +14,23 @@ class Login extends React.Component {
     this.setState({
       usernameInput: event.target.value,
     })
-    console.log(event.target.value)
   }
 
   handleSubmit = () => {
     const { saveUser } = this.props;
     saveUser(this.state.usernameInput);
+    localStorage.setItem('username',this.state.usernameInput);
   }
 
   render() {
     const { usernameInput } = this.state;
-    console.log(usernameInput);
     return(
       <div id="login">
         <h1>THE NEW MOVIE DATE</h1>
         <div>
-          <input type="text" value={usernameInput} onChange={this.handleChange}></input>
+          <input type="text" placeholder="Your name here" value={usernameInput} onChange={this.handleChange}></input>
           <Link to={'/Movies'}>
-            <button type="button" onSubmit={this.handleSubmit}>
+            <button type="button" onClick={this.handleSubmit}>
               Log in
                 <Icon icon={bxChevronRightCircle} style={{ color: 'white', fontSize: '20px', marginLeft: '10px', }} />
             </button>

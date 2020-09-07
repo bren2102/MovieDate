@@ -8,9 +8,8 @@ import rootReducer from './reducers/index';
 
 const store = createStore(rootReducer,
   {
-    movies: [],
-    appointments: [],
-    currentUser: [],
+    currentUser: '',
+    currentPage: false,
   });
 
 ReactDOM.render(

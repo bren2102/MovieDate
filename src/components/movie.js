@@ -7,7 +7,6 @@ import twitterCircle from '@iconify/icons-jam/twitter-circle';
 
 const Movie = (props) => {
   const {name, image, desc} = props;
-
   return (
     <div id="movie">
       <Link to={`/${name}`}>
@@ -24,7 +23,6 @@ const Movie = (props) => {
       </div>
     </div>
   )
-  
 }
 
-export default withRouter(Movie);
+export default (withRouter(Movie));

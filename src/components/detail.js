@@ -1,12 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 import { withRouter, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Details extends React.Component {
   state = {
     movieDetail: [],
-    price: '',
+    moviePrice: '',
     cities: [],
+    city_name: 'Lima',
+    date: '',
   }
 
   componentDidMount() {
@@ -16,7 +19,7 @@ class Details extends React.Component {
       .then(data => {
         this.setState({
           movieDetail: data.data[0],
-          price: data.data[0].price,
+          moviePrice: data.data[0].price,
         })
       })
     const citiesUrl = '/cities';
@@ -28,11 +31,29 @@ class Details extends React.Component {
       });
   }
 
+  handleChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value,
+    })
+  }
+
+  handleSubmit = () => {
+    const { currentUser } = this.props;
+    const appointmentUrl = '/ticket/create';
+    axios.post(appointmentUrl, {
+      username: currentUser,
+      price: this.state.moviePrice,
+      movie_name: this.state.movieDetail.name,
+      city_name: this.state.city_name,
+      date: this.state.date,
+    })
+  }
+
   render() {
-    const {movieDetail, price, cities } = this.state;
+    const { movieDetail, moviePrice, cities, date } = this.state;
     const fee = parseFloat("2.30");
-    const moviePrice = parseFloat(price);
-    const total = (moviePrice + fee).toFixed(2);
+    const moviePriceFloat = parseFloat(moviePrice);
+    const total = (moviePriceFloat + fee).toFixed(2);
     return (
       <div id="details">
         <div id="dImage">
@@ -49,7 +70,7 @@ class Details extends React.Component {
           </div>
           <div>
             <span>Ticket price</span>
-            <span>$ {moviePrice.toFixed(2)}</span>
+            <span>$ {moviePriceFloat.toFixed(2)}</span>
           </div>
           <div id="bgGray">
             <span>Total amount payable</span>
@@ -63,15 +84,17 @@ class Details extends React.Component {
             <span>5.9%APR</span><span>Representative</span>
           </div>
           <span>Choose a date:</span>
-          <input type="date" data-date-inline-picker="true"></input>
+          <input id="date" type="date" min="2020-09-09" data-date-inline-picker="true" onChange={this.handleChange} value={date}></input>
           <span>Choose a city:</span>
-          <select name="cities" id="cities">
+          <select name="cities" id="city_name" onChange={this.handleChange}>
             {cities.map(city =>
               <option value={city.name} key={city.name}>{city.name}</option>
             )}
           </select>
-          <Link to={'/Tickets'} >
-            Book Now
+          <Link to={'/Tickets'}>
+            <button type="button" onClick={this.handleSubmit}>
+              Book Now
+            </button>
           </Link>
         </div>
       </div>
@@ -79,4 +102,8 @@ class Details extends React.Component {
   }
 }
 
-export default withRouter(Details);
+const mapStateToProps = state => ({
+  currentUser: state.currentUser,
+})
+
+export default connect(mapStateToProps,null)(withRouter(Details));

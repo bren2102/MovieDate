@@ -1,41 +1,44 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
+import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-import logoTwitter from '@iconify/icons-carbon/logo-twitter';
-import scFacebook from '@iconify/icons-ei/sc-facebook';
-import googlePlus from '@iconify/icons-vaadin/google-plus';
-import scVimeo from '@iconify/icons-ei/sc-vimeo';
-import bxlPinterestAlt from '@iconify/icons-bx/bxl-pinterest-alt';
+import logoutIcon from '@iconify/icons-carbon/logout';
 
 class SideBar extends React.Component {
 
+  handleSubmit = () => {
+    localStorage.setItem('username','')
+  }
   render() {
+    const { currentPage } = this.props
     return(
       <nav>
         <h1>Vmovie</h1>
         <ul>
           <Link to={'/Movies'}>
-            <li>MOVIES</li>
+            <li style={{ backgroundColor: (currentPage === 'movies' ? '#97be10' : 'white'), color: (currentPage === 'movies' ? 'white' : '#393939'),}}>MOVIES</li>
           </Link>
           <li>LOCATIONS</li>
           <li>SNACKS</li>
           <Link to={'/Tickets'}>
-            <li>TICKETS</li>
+            <li style={{ backgroundColor: (currentPage === 'tickets' ? '#97be10' : 'white'), color: (currentPage === 'tickets' ? 'white' :'#393939'),}}>TICKETS</li>
           </Link>
         </ul>
         <div>
-          <div id="icon">
-            <Icon icon={logoTwitter} style={{ color: '#484848', fontSize: '25px', }} />
-            <Icon icon={scFacebook} style={{ color: '#484848', fontSize: '25px', }} />
-            <Icon icon={googlePlus} style={{ color: '#484848', fontSize: '20px', }} />
-            <Icon icon={scVimeo} style={{ color: '#484848', fontSize: '25px', }} />
-            <Icon icon={bxlPinterestAlt} style={{ color: '#484848', fontSize: '25px', }} />
-          </div>
-          <span id="copyright">&copy; 2020 Rights reserved</span>
+          <Link to={'/'}>
+            <button onClick={this.handleSubmit}>
+            <Icon icon={logoutIcon} style={{ color: '#484848', fontSize: '20px', marginRight: '10px', }} hFlip={true} />
+            Logout</button>
+          </Link>
+          <span>&copy; 2020 Rights Reserved</span>
         </div>
       </nav>
     );
   }
 }
 
-export default withRouter(SideBar);
+const mapStateToProps = state => ({
+ currentPage: state.currentPage,
+});
+
+export default connect(mapStateToProps,null)(withRouter(SideBar));
