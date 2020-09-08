@@ -106,9 +106,7 @@ nav {
   li {
     padding: $padding15;
     font-weight: 700;
-    background-color: white !important;
-    transition: width 1s;
-    width: 0;
+    background-color: white;
   }
 
   li:hover {

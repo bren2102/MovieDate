@@ -33,12 +33,11 @@ const App = props => {
 
 App.propTypes = {
   currentUser: PropTypes.string,
-  saveUser: PropTypes.string,
+  saveUser: PropTypes.func.isRequired,
 };
 
 App.defaultProps = {
   currentUser: '',
-  saveUser: '',
 };
 
 const mapStateToProps = state => ({
