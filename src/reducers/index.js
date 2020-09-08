@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import userReducer from './currentUser';
 import selectReducer from './currentSelected';
 

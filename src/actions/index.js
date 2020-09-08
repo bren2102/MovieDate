@@ -8,5 +8,5 @@ export const loginUser = currentUser => ({
 
 export const selectedPage = currentPage => ({
   type: SELECTED_PAGE,
-  currentPage
+  currentPage,
 });

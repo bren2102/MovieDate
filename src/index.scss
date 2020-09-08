@@ -88,7 +88,7 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   border-right: 2px solid $bgColor;
-  color: $grayColor;
+  color: $grayColor !important;
 
   h1 {
     padding-left: $padding15;
@@ -106,11 +106,15 @@ nav {
   li {
     padding: $padding15;
     font-weight: 700;
+    background-color: white !important;
+    transition: width 1s;
+    width: 0;
   }
 
   li:hover {
     background-color: $greenColor !important;
     color: white !important;
+    width: 100%;
   }
 
   #icon {
@@ -172,6 +176,7 @@ nav {
 
     img {
       height: 200px;
+      transition: height 1s;
     }
   }
 
@@ -266,6 +271,12 @@ nav {
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: flex-start;
+
+    #movie a:hover {
+      img {
+        height: 250px;
+      }
+    }
 
     button {
       border: none;

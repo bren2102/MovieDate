@@ -16,12 +16,12 @@ class SideBar extends React.Component {
         <h1>Vmovie</h1>
         <ul>
           <Link to={'/Movies'}>
-            <li style={{ backgroundColor: (currentPage === 'movies' ? '#97be10' : 'white'), color: (currentPage === 'movies' ? 'white' : '#393939'),}}>MOVIES</li>
+            <li style={{ backgroundColor: (currentPage === 'movies' ? '#97be10' : 'white'),}}>MOVIES</li>
           </Link>
           <li>LOCATIONS</li>
           <li>SNACKS</li>
           <Link to={'/Tickets'}>
-            <li style={{ backgroundColor: (currentPage === 'tickets' ? '#97be10' : 'white'), color: (currentPage === 'tickets' ? 'white' :'#393939'),}}>TICKETS</li>
+            <li style={{ backgroundColor: (currentPage === 'tickets' ? '#97be10' : 'white'),}}>TICKETS</li>
           </Link>
         </ul>
         <div>
