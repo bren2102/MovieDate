@@ -33,6 +33,11 @@ To install the project follow these instructions:
 
 - [MovieDateApi](https://github.com/bren2102/MovieDateApi)
 
+## Future Work
+
+- Implement transitions to make user experience better
+- Implement locations and snacks page
+
 ## Live Demo
 
 [Live Demo Version](https://bren2102-moviedate.herokuapp.com/Movies)
