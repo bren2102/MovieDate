@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
@@ -40,13 +41,12 @@ class Details extends React.Component {
   }
 
   handleSubmit = () => {
-    console.log('entra')
     const { currentUser, history } = this.props;
     const {
-      moviePrice, movieDetail, cityName, date
+      moviePrice, movieDetail, cityName, date,
     } = this.state;
     const appointmentUrl = '/api/ticket/create';
-    if (date !== ''){
+    if (date !== '') {
       axios.post(appointmentUrl, {
         username: currentUser,
         price: moviePrice,
@@ -56,13 +56,13 @@ class Details extends React.Component {
       });
       history.push('/Tickets');
     } else {
-      alert("Please select a date");
+      alert('Please select a date');
     }
   }
 
   render() {
     const {
-      movieDetail, moviePrice, cities, date
+      movieDetail, moviePrice, cities, date,
     } = this.state;
     const fee = parseFloat('2.30');
     const moviePriceFloat = parseFloat(moviePrice);
@@ -131,6 +131,9 @@ Details.propTypes = {
     params: PropTypes.shape({
       name: PropTypes.string,
     }),
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
   }).isRequired,
 };
 
