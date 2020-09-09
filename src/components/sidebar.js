@@ -18,9 +18,9 @@ class SideBar extends React.Component {
     navBar.style.maxHeight = '100%';
     navBar.style.width = '100%';
     navBar.style.overflow = 'visible';
-    navBar.style.position = "absolute";
-    navBar.style.setProperty("height", "100%", "important");
-    navBar.style.setProperty("width", "100%", "important");
+    navBar.style.position = 'absolute';
+    navBar.style.setProperty('height', '100%', 'important');
+    navBar.style.setProperty('width', '100%', 'important');
     const close = document.getElementById('close');
     close.style.maxHeight = '100%';
     close.style.width = 'auto';
@@ -28,45 +28,33 @@ class SideBar extends React.Component {
     close.style.position = 'absolute';
     close.style.right = '20px';
     const app = document.getElementById('app');
-    app.style.setProperty("overflow", "hidden", "important");
+    app.style.setProperty('overflow', 'hidden', 'important');
     const ticketsLink = document.getElementById('ticketsLink');
-    ticketsLink.addEventListener('click', () => {this.handleClose();})
+    ticketsLink.addEventListener('click', () => { this.handleClose(); });
     const moviesLink = document.getElementById('moviesLink');
-    moviesLink.addEventListener('click', () => { this.handleClose(); })
-
+    moviesLink.addEventListener('click', () => { this.handleClose(); });
   }
 
   handleClose = () => {
     const navBar = document.getElementById('navBar');
-    // navBar.style.maxHeight = '100%';
-    // navBar.style.width = 'auto';
-    // navBar.style.overflow = 'hidden';
-    // navBar.style.position = "unset";
-    // navBar.style.setProperty("height", "100%", "important");
-    navBar.removeAttribute("style")
-    // navBar.style.setProperty("width", "100%", "important");
+    navBar.removeAttribute('style');
     const close = document.getElementById('close');
-    close.removeAttribute("style");
-    // close.style.maxHeight = '0';
-    // close.style.width = 'auto';
-    // close.style.top = '15px';
-    // close.style.position = 'absolute';
-    // close.style.right = '20px';
+    close.removeAttribute('style');
     const app = document.getElementById('app');
-    app.style.setProperty("overflow", "unset", "important");
+    app.style.setProperty('overflow', 'unset', 'important');
   }
 
   render() {
     const { currentPage } = this.props;
     return (
       <React.StrictMode>
-        <button id="collapse" onClick={this.handleMenu}>
-          <Icon icon={menuIcon} style={{ color: '#484848', fontSize: '25px', }} />
+        <button type="button" id="collapse" onClick={this.handleMenu}>
+          <Icon icon={menuIcon} style={{ color: '#484848', fontSize: '25px' }} />
         </button>
         <nav id="navBar">
           <h1>Vmovie</h1>
-          <button id="close" onClick={this.handleClose} style={{ overflow: 'hidden', maxHeight: 0, }} >
-            <Icon icon={closeIcon} style={{ color: '#484848', fontSize: '28px', }} />
+          <button type="button" id="close" onClick={this.handleClose} style={{ overflow: 'hidden', maxHeight: 0 }}>
+            <Icon icon={closeIcon} style={{ color: '#484848', fontSize: '28px' }} />
           </button>
           <ul id="linkList">
             <Link to="/Movies" id="moviesLink">

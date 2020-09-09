@@ -99,7 +99,6 @@ nav {
   color: $grayColor !important;
   background-color: white;
 
-
   h1 {
     padding: 0 $padding15;
     font-family: 'Pacifico', cursive;
@@ -311,6 +310,14 @@ nav {
   }
 }
 
+#movieSet {
+  justify-content: space-around;
+
+  button {
+    display: none;
+  }
+}
+
 #details {
   display: flex;
   align-items: center;
@@ -511,7 +518,6 @@ nav {
     position: unset;
     height: 0 !important;
     padding: 0;
-
   }
 
   .movieMenu {
@@ -579,6 +585,12 @@ nav {
     margin: 0;
   }
 
+  #movieSet {
+    button {
+      display: block;
+    }
+  }
+
   #collapse,
   #close {
     overflow: hidden;
@@ -593,11 +605,7 @@ nav {
     align-items: center;
     flex-direction: row;
     padding: $padding15 !important;
-    position: sticky;
-    top: 0;
-    z-index: 100;
     background-color: white;
-
 
     h1 {
       padding: 0;
@@ -621,9 +629,11 @@ nav {
   .movieMenu,
   #tickets {
     padding: 50px 0;
+    overflow-x: scroll;
   }
 
   #items {
     justify-content: center;
+    overflow-x: unset !important;
   }
 }
