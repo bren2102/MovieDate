@@ -44,7 +44,7 @@ $mainGray: #141414;
 html,
 body,
 #root,
-.app,
+#app,
 #id {
   height: 100%;
 }
@@ -72,16 +72,24 @@ button {
   background-color: $bgColor;
 }
 
-.app {
-  width: 1024px;
+#app {
+  width: 100%;
   margin: 0 auto;
   background-color: white;
   display: flex;
 }
 
+#collapse,
+#close {
+  overflow: hidden;
+  max-height: 0;
+  border: none;
+  width: 0;
+}
+
 nav {
-  width: 20%;
-  height: 100%;
+  width: 220px !important;
+  height: 100% !important;
   padding: $padding15;
   padding-right: 0;
   display: flex;
@@ -89,9 +97,11 @@ nav {
   justify-content: space-between;
   border-right: 2px solid $bgColor;
   color: $grayColor !important;
+  background-color: white;
+
 
   h1 {
-    padding-left: $padding15;
+    padding: 0 $padding15;
     font-family: 'Pacifico', cursive;
     font-size: 35px;
     transform: rotate(-10deg);
@@ -100,7 +110,7 @@ nav {
   ul {
     @include listStyle;
 
-    margin-top: -205px;
+    margin-top: -50px;
   }
 
   li {
@@ -251,6 +261,7 @@ nav {
   padding: 150px 0;
   width: 100%;
   color: $mainGray;
+  height: inherit;
 
   h1 {
     letter-spacing: 5px;
@@ -428,13 +439,14 @@ nav {
     flex-wrap: wrap;
     padding: 50px 10px;
     overflow-x: scroll;
+    justify-content: center;
   }
 
   .ticket {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 30%;
+    width: 20vw;
     margin: 12px;
 
     div:first-child {
@@ -482,5 +494,136 @@ nav {
   a {
     color: $greenColor;
     font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #app {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+
+  nav {
+    max-height: 100%;
+    width: 0 !important;
+    overflow: hidden;
+    position: unset;
+    height: 0 !important;
+    padding: 0;
+
+  }
+
+  .movieMenu {
+    padding: 20px 0;
+  }
+
+  #movieSet {
+    flex-direction: column;
+    align-items: center !important;
+
+    button {
+      display: none;
+    }
+  }
+
+  #movie {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  #details {
+    flex-direction: column;
+    padding: 20px 0;
+
+    #payingDetail {
+      width: 100%;
+      padding: 0 40px 20px;
+    }
+  }
+
+  #details #payingDetail div:first-child {
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  #tickets {
+    padding: 20px 0;
+  }
+
+  #collapse,
+  #close {
+    border: none;
+    background-color: white;
+  }
+
+  #collapse {
+    width: 25px !important;
+    max-height: 100%;
+    overflow: unset;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  #close {
+    overflow: hidden;
+    max-height: 0;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #app {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+
+  #collapse,
+  #close {
+    overflow: hidden;
+    max-height: 0;
+    border: none;
+    width: 0;
+  }
+
+  nav {
+    width: 100% !important;
+    height: 95px !important;
+    align-items: center;
+    flex-direction: row;
+    padding: $padding15 !important;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+
+
+    h1 {
+      padding: 0;
+    }
+
+    ul {
+      flex-direction: row;
+      margin-top: 0;
+    }
+
+    div {
+      flex-direction: row;
+      padding: 0;
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .movieMenu,
+  #tickets {
+    padding: 50px 0;
+  }
+
+  #items {
+    justify-content: center;
   }
 }

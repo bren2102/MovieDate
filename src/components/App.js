@@ -18,7 +18,7 @@ const App = props => {
   const currentUser = saveUser(localStorage.getItem('username'));
   return (
     <Router>
-      <div className="app">
+      <div id="app">
         <SideBar />
         <Switch>
           <Route exact path="/"><Login /></Route>
