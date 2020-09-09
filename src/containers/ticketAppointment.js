@@ -21,12 +21,12 @@ class TicketAppointment extends React.Component {
           tickets: data.data,
         });
       });
+    const { setselectedPage } = this.props;
+    setselectedPage('tickets');
   }
 
   render() {
     const { tickets } = this.state;
-    const { setselectedPage } = this.props;
-    setselectedPage('tickets');
     if (tickets.length !== 0) {
       return (
         <div id="tickets">
@@ -70,12 +70,11 @@ class TicketAppointment extends React.Component {
 
 TicketAppointment.propTypes = {
   currentUser: PropTypes.string,
-  setselectedPage: PropTypes.string,
+  setselectedPage: PropTypes.func.isRequired,
 };
 
 TicketAppointment.defaultProps = {
   currentUser: '',
-  setselectedPage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

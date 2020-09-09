@@ -9,7 +9,7 @@ import rootReducer from './reducers/index';
 const store = createStore(rootReducer,
   {
     currentUser: '',
-    currentPage: false,
+    currentPage: '',
   });
 
 ReactDOM.render(

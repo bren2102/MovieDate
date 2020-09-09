@@ -22,12 +22,12 @@ class LatestMovies extends React.Component {
           movies: data.data,
         });
       });
+    const { setselectedPage } = this.props;
+    setselectedPage('movies');
   }
 
   render() {
     const { movies } = this.state;
-    const { setselectedPage } = this.props;
-    setselectedPage('movies');
     return (
       <div className="movieMenu">
         <h1>LATEST MOVIES</h1>
