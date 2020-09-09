@@ -16,7 +16,7 @@ class Details extends React.Component {
   componentDidMount() {
     const { match } = this.props;
     const { name } = match.params;
-    const moviesUrl = `/movies/${name}`;
+    const moviesUrl = `/api/movies/${name}`;
     axios.get(moviesUrl)
       .then(data => {
         this.setState({
@@ -24,7 +24,7 @@ class Details extends React.Component {
           moviePrice: data.data[0].price,
         });
       });
-    const citiesUrl = '/cities';
+    const citiesUrl = '/api/cities';
     axios.get(citiesUrl)
       .then(data => {
         this.setState({
@@ -40,18 +40,19 @@ class Details extends React.Component {
   }
 
   handleSubmit = () => {
+    console.log('entra')
     const { currentUser } = this.props;
     const {
       moviePrice, movieDetail, cityName, date,
     } = this.state;
-    const appointmentUrl = '/ticket/create';
+    const appointmentUrl = '/api/ticket/create';
     axios.post(appointmentUrl, {
       username: currentUser,
       price: moviePrice,
       movie_name: movieDetail.name,
       city_name: cityName,
       date,
-    });
+    }).then(data => console.log(data));
   }
 
   render() {

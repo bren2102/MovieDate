@@ -15,7 +15,7 @@ class LatestMovies extends React.Component {
   }
 
   componentDidMount() {
-    const moviesUrl = '/movies';
+    const moviesUrl = '/api/movies';
     axios.get(moviesUrl)
       .then(data => {
         this.setState({

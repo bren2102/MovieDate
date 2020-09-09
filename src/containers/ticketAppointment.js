@@ -14,7 +14,7 @@ class TicketAppointment extends React.Component {
 
   componentDidMount() {
     const { currentUser } = this.props;
-    const ticketUrl = `/tickets/${currentUser}`;
+    const ticketUrl = `/api/tickets/${currentUser}`;
     axios.get(ticketUrl)
       .then(data => {
         this.setState({

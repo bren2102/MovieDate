@@ -276,7 +276,7 @@ nav {
     display: flex;
     width: 100%;
     padding: 40px 0;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     align-items: flex-start;
 
@@ -340,6 +340,7 @@ nav {
     background-color: transparent;
     border: none;
     color: white;
+    width: 100%;
   }
 
   #payingDetail {
