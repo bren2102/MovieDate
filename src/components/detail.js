@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -41,23 +41,28 @@ class Details extends React.Component {
 
   handleSubmit = () => {
     console.log('entra')
-    const { currentUser } = this.props;
+    const { currentUser, history } = this.props;
     const {
-      moviePrice, movieDetail, cityName, date,
+      moviePrice, movieDetail, cityName, date
     } = this.state;
     const appointmentUrl = '/api/ticket/create';
-    axios.post(appointmentUrl, {
-      username: currentUser,
-      price: moviePrice,
-      movie_name: movieDetail.name,
-      city_name: cityName,
-      date,
-    }).then(data => console.log(data));
+    if (date !== ''){
+      axios.post(appointmentUrl, {
+        username: currentUser,
+        price: moviePrice,
+        movie_name: movieDetail.name,
+        city_name: cityName,
+        date,
+      });
+      history.push('/Tickets');
+    } else {
+      alert("Please select a date");
+    }
   }
 
   render() {
     const {
-      movieDetail, moviePrice, cities, date,
+      movieDetail, moviePrice, cities, date
     } = this.state;
     const fee = parseFloat('2.30');
     const moviePriceFloat = parseFloat(moviePrice);
@@ -111,11 +116,9 @@ class Details extends React.Component {
           <select name="cities" id="cityName" onChange={this.handleChange}>
             {cities.map(city => <option value={city.name} key={city.name}>{city.name}</option>)}
           </select>
-          <Link to="/Tickets">
-            <button type="button" onClick={this.handleSubmit}>
-              Book Now
-            </button>
-          </Link>
+          <button type="button" onClick={this.handleSubmit}>
+            Book Now
+          </button>
         </div>
       </div>
     );
