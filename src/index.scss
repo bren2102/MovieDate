@@ -506,6 +506,38 @@ nav {
 }
 
 @media only screen and (max-width: 768px) {
+  #login {
+    text-align: center;
+
+    h1 {
+      font-size: 40px;
+    }
+
+    div {
+      flex-direction: column;
+      width: 80%;
+
+      input {
+        padding: 25px;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid $bgColor;
+        color: white;
+      }
+
+      ::placeholder {
+        color: white;
+      }
+
+      a {
+        width: 100%;
+      }
+
+      button {
+        padding: 20px;
+      }
+    }
+  }
   #app {
     flex-direction: column;
     width: 100%;
@@ -522,7 +554,7 @@ nav {
   }
 
   .movieMenu {
-    padding: 20px 0;
+    padding: 80px 0;
   }
 
   #movieSet {
@@ -541,7 +573,7 @@ nav {
 
   #details {
     flex-direction: column;
-    padding: 20px 0;
+    padding: 80px 0 20px;
 
     #payingDetail {
       width: 100%;
@@ -555,7 +587,11 @@ nav {
   }
 
   #tickets {
-    padding: 20px 0;
+    padding: 80px 0;
+
+    .ticket {
+      width: 100%;
+    }
   }
 
   #collapse,
