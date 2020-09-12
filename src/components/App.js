@@ -17,11 +17,11 @@ const App = props => {
   const { currentUser, saveUser } = props;
   const localUser = JSON.parse(localStorage.getItem('user'));
   let loggedIn = false;
-  if (currentUser.name ) {
+  if (currentUser.name) {
     loggedIn = true;
   }
-  if ( !currentUser.name && localUser ) {
-    saveUser(localUser)
+  if (!currentUser.name && localUser) {
+    saveUser(localUser);
     loggedIn = true;
   }
   return (
@@ -40,12 +40,11 @@ const App = props => {
 };
 
 App.propTypes = {
-  currentUser: PropTypes.object,
+  currentUser: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  }).isRequired,
   saveUser: PropTypes.func.isRequired,
-};
-
-App.defaultProps = {
-  currentUser: '',
 };
 
 const mapStateToProps = state => ({

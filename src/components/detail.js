@@ -43,7 +43,7 @@ class Details extends React.Component {
   handleSubmit = () => {
     const { currentUser, history } = this.props;
     const {
-      moviePrice, movieDetail, cityName, date, 
+      moviePrice, movieDetail, cityName, date,
     } = this.state;
     const appointmentUrl = 'api/ticket/create';
     if (date !== '') {
@@ -54,8 +54,7 @@ class Details extends React.Component {
         movie_name: movieDetail.name,
         city_name: cityName,
         date,
-      });
-      history.push('/Tickets');
+      }).then(history.push('/Tickets'));
     } else {
       alert('Please select a date');
     }
@@ -127,7 +126,10 @@ class Details extends React.Component {
 }
 
 Details.propTypes = {
-  currentUser: PropTypes.object,
+  currentUser: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  }).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       name: PropTypes.string,
@@ -136,10 +138,6 @@ Details.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
-};
-
-Details.defaultProps = {
-  currentUser: '',
 };
 
 const mapStateToProps = state => ({

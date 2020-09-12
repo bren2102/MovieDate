@@ -69,12 +69,11 @@ class TicketAppointment extends React.Component {
 }
 
 TicketAppointment.propTypes = {
-  currentUser: PropTypes.object,
+  currentUser: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+  }).isRequired,
   setselectedPage: PropTypes.func.isRequired,
-};
-
-TicketAppointment.defaultProps = {
-  currentUser: '',
 };
 
 const mapStateToProps = state => ({

@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://bren2102-moviedateapi.herokuapp.com',
+      target: 'http://localhost:3001',
       changeOrigin: true,
       pathRewrite: {
         '^/api': '/',
