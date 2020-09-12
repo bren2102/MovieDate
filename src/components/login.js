@@ -40,7 +40,7 @@ class Login extends React.Component {
           <input type="text" placeholder="Your name here" value={usernameInput} onChange={this.handleChange} />
           <button type="button" onClick={this.handleSubmit}>
             Log in
-            <Icon icon={bxChevronRightCircle} style={{ color: 'white', fontSize: '20px', marginLeft: '10px', }} />
+            <Icon icon={bxChevronRightCircle} style={{ color: 'white', fontSize: '20px', marginLeft: '10px' }} />
           </button>
         </div>
       </div>
