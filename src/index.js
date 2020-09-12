@@ -6,11 +6,12 @@ import { Provider } from 'react-redux';
 import App from './components/App';
 import rootReducer from './reducers/index';
 
-const store = createStore(rootReducer,
-  {
-    currentUser: '',
-    currentPage: '',
-  });
+const initialState = {
+  currentUser: {},
+  currentPage: '',
+};
+
+const store = createStore(rootReducer, initialState);
 
 ReactDOM.render(
   <Provider store={store}>

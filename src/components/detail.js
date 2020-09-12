@@ -43,12 +43,13 @@ class Details extends React.Component {
   handleSubmit = () => {
     const { currentUser, history } = this.props;
     const {
-      moviePrice, movieDetail, cityName, date,
+      moviePrice, movieDetail, cityName, date, 
     } = this.state;
-    const appointmentUrl = '/api/ticket/create';
+    const appointmentUrl = 'api/ticket/create';
     if (date !== '') {
       axios.post(appointmentUrl, {
-        username: currentUser,
+        user_id: currentUser.id,
+        username: currentUser.name,
         price: moviePrice,
         movie_name: movieDetail.name,
         city_name: cityName,
@@ -126,7 +127,7 @@ class Details extends React.Component {
 }
 
 Details.propTypes = {
-  currentUser: PropTypes.string,
+  currentUser: PropTypes.object,
   match: PropTypes.shape({
     params: PropTypes.shape({
       name: PropTypes.string,

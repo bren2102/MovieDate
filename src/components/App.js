@@ -14,17 +14,25 @@ import Detail from './detail';
 import TicketAppointment from '../containers/ticketAppointment';
 
 const App = props => {
-  const { saveUser } = props;
-  const currentUser = saveUser(localStorage.getItem('username'));
+  const { currentUser, saveUser } = props;
+  const localUser = JSON.parse(localStorage.getItem('user'));
+  let loggedIn = false;
+  if (currentUser.name ) {
+    loggedIn = true;
+  }
+  if ( !currentUser.name && localUser ) {
+    saveUser(localUser)
+    loggedIn = true;
+  }
   return (
     <Router>
       <div id="app">
         <SideBar />
         <Switch>
           <Route exact path="/"><Login /></Route>
-          { localStorage.getItem('username') ? <Route exact path="/Movies"><LatestMovies /></Route> : <Redirect to="/" />}
-          { localStorage.getItem('username') ? <Route exact path="/Tickets"><TicketAppointment /></Route> : <Redirect to="/" />}
-          { localStorage.getItem('username') ? <Route exact path="/:name"><Detail /></Route> : <Redirect to="/" />}
+          { loggedIn ? <Route exact path="/Movies"><LatestMovies /></Route> : <Redirect to="/" />}
+          { loggedIn ? <Route exact path="/Tickets"><TicketAppointment /></Route> : <Redirect to="/" />}
+          { loggedIn ? <Route exact path="/:name"><Detail /></Route> : <Redirect to="/" />}
         </Switch>
       </div>
     </Router>
@@ -32,7 +40,7 @@ const App = props => {
 };
 
 App.propTypes = {
-  currentUser: PropTypes.string,
+  currentUser: PropTypes.object,
   saveUser: PropTypes.func.isRequired,
 };
 

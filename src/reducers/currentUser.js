@@ -1,6 +1,6 @@
 import { LOGIN_USER } from '../actions/index';
 
-const userReducer = (state = [], action) => {
+const userReducer = (state = {}, action) => {
   switch (action.type) {
     case LOGIN_USER: {
       return action.currentUser;

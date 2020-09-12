@@ -14,7 +14,7 @@ class TicketAppointment extends React.Component {
 
   componentDidMount() {
     const { currentUser } = this.props;
-    const ticketUrl = `/api/tickets/${currentUser}`;
+    const ticketUrl = `/api/tickets/${currentUser.name}`;
     axios.get(ticketUrl)
       .then(data => {
         this.setState({
@@ -69,7 +69,7 @@ class TicketAppointment extends React.Component {
 }
 
 TicketAppointment.propTypes = {
-  currentUser: PropTypes.string,
+  currentUser: PropTypes.object,
   setselectedPage: PropTypes.func.isRequired,
 };
 

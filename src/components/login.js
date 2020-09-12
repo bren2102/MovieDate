@@ -1,10 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import bxChevronRightCircle from '@iconify/icons-bx/bx-chevron-right-circle';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { loginUser } from '../actions/index';
 
 class Login extends React.Component {
@@ -19,10 +20,19 @@ class Login extends React.Component {
   }
 
   handleSubmit = () => {
-    const { saveUser } = this.props;
+    const { saveUser, history } = this.props;
     const { usernameInput } = this.state;
-    saveUser(usernameInput);
-    localStorage.setItem('username', usernameInput);
+    // saveUser(usernameInput);
+    // localStorage.setItem('username', usernameInput);
+    axios.post(`api/user/login`, {
+      name: usernameInput,
+    }).then( data => {
+        saveUser(data.data);
+        localStorage.setItem('user', JSON.stringify(data.data));
+        // console.log(data.data);
+        // console.log(localStorage.getItem('username'));
+        history.push('/Movies');
+      })
   }
 
   render() {
@@ -32,12 +42,10 @@ class Login extends React.Component {
         <h1>THE NEW MOVIE DATE</h1>
         <div>
           <input type="text" placeholder="Your name here" value={usernameInput} onChange={this.handleChange} />
-          <Link to="/Movies">
-            <button type="button" onClick={this.handleSubmit}>
-              Log in
-              <Icon icon={bxChevronRightCircle} style={{ color: 'white', fontSize: '20px', marginLeft: '10px' }} />
-            </button>
-          </Link>
+          <button type="button" onClick={this.handleSubmit}>
+            Log in
+            <Icon icon={bxChevronRightCircle} style={{ color: 'white', fontSize: '20px', marginLeft: '10px' }} />
+          </button>
         </div>
       </div>
     );
@@ -46,6 +54,9 @@ class Login extends React.Component {
 
 Login.propTypes = {
   saveUser: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({

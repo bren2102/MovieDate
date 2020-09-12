@@ -1,6 +1,6 @@
 import { SELECTED_PAGE } from '../actions/index';
 
-const selectReducer = (state = [], action) => {
+const selectReducer = (state = '', action) => {
   switch (action.type) {
     case SELECTED_PAGE: {
       return action.currentPage;
