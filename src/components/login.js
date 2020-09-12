@@ -22,15 +22,11 @@ class Login extends React.Component {
   handleSubmit = () => {
     const { saveUser, history } = this.props;
     const { usernameInput } = this.state;
-    // saveUser(usernameInput);
-    // localStorage.setItem('username', usernameInput);
     axios.post('api/user/login', {
       name: usernameInput,
     }).then(data => {
       saveUser(data.data);
       localStorage.setItem('user', JSON.stringify(data.data));
-      // console.log(data.data);
-      // console.log(localStorage.getItem('username'));
       history.push('/Movies');
     });
   }
