@@ -1,0 +1,674 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700&family=Pacifico&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@500;600;700;800;900&display=swap');
+
+/* stylelint-disable no-descending-specificity */
+
+$greenColor: #97be10;
+$greenColorTransparent: #98be1077;
+$orangeColor: #ffb400;
+$grayColor: #393939;
+$padding15: 15px;
+$lightGray: #bbb;
+$bgColor: #f1f1f1;
+$mainGray: #141414;
+
+@mixin buttonStyle {
+  border-radius: 25px;
+  background-color: $greenColor;
+  padding: 12px 18px;
+  border: none;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+@mixin noneSelector {
+  -moz-user-select: none;
+  -website-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+}
+
+@mixin listStyle {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+@mixin hoverStyle {
+  cursor: pointer;
+  background-color: $greenColor;
+}
+
+html,
+body,
+#root,
+#app,
+#id {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+
+  @include noneSelector;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+button {
+  cursor: pointer;
+}
+
+#root {
+  background-color: $bgColor;
+}
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  display: flex;
+}
+
+#collapse,
+#close {
+  overflow: hidden;
+  max-height: 0;
+  border: none;
+  width: 0;
+}
+
+nav {
+  width: 220px !important;
+  height: 100% !important;
+  padding: $padding15;
+  padding-right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 2px solid $bgColor;
+  color: $grayColor !important;
+  background-color: white;
+
+  h1 {
+    padding: 0 $padding15;
+    font-family: 'Pacifico', cursive;
+    font-size: 35px;
+    transform: rotate(-10deg);
+  }
+
+  ul {
+    @include listStyle;
+
+    margin-top: -50px;
+  }
+
+  li {
+    padding: $padding15;
+    font-weight: 700;
+    background-color: white;
+  }
+
+  li:hover {
+    background-color: $greenColor !important;
+    color: white !important;
+    width: 100%;
+  }
+
+  #icon {
+    padding: $padding15;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  span {
+    font-size: 10px;
+    padding-top: 30px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    padding: $padding15;
+
+    a {
+      display: flex;
+      font-size: 14px;
+      align-items: center;
+    }
+  }
+}
+
+#movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+
+  h3 {
+    padding: $padding15;
+    border-bottom: 1px solid $bgColor;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  #movieImg {
+    border-radius: 100px;
+    background-color: $bgColor;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 200px;
+      transition: height 1s;
+    }
+  }
+
+  #movieImg:hover {
+    @include hoverStyle;
+  }
+
+  span {
+    padding: $padding15;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  #social {
+    :nth-child(2) {
+      margin: 0 5px;
+    }
+  }
+}
+
+#login {
+  color: white;
+  background-color: $orangeColor;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: inherit;
+
+  h1 {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-bottom: 40px;
+    font-size: 50px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
+    @include buttonStyle;
+  }
+
+  a {
+    width: 30%;
+  }
+
+  input {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    border-right: 1px solid white;
+    padding: 0 25px;
+  }
+
+  ::placeholder {
+    color: white;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    background-color: $greenColor;
+    border-radius: 25px;
+  }
+}
+
+.movieMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px 0;
+  width: 100%;
+  color: $mainGray;
+  height: inherit;
+
+  h1 {
+    letter-spacing: 5px;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  span {
+    color: $lightGray;
+  }
+
+  #movieSet {
+    display: flex;
+    width: 100%;
+    padding: 40px 0;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    #movie a:hover {
+      img {
+        height: 250px;
+      }
+    }
+
+    button {
+      border: none;
+      background-color: $bgColor;
+      margin-top: 80px;
+    }
+
+    #leftSide {
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+      padding: 20px 20px 20px 40px;
+    }
+
+    #rightSide {
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      padding: 20px 40px 20px 20px;
+    }
+
+    button:hover {
+      @include hoverStyle;
+    }
+  }
+}
+
+#movieSet {
+  justify-content: space-around;
+
+  button {
+    display: none;
+  }
+}
+
+#details {
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+  width: 100%;
+  color: #141414;
+  height: 100%;
+
+  #dImage {
+    width: 60%;
+    height: inherit;
+    text-align: center;
+
+    img {
+      width: 70%;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+
+    @include buttonStyle;
+  }
+
+  #payingDetail {
+    width: 40%;
+    height: inherit;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+      align-items: center;
+    }
+
+    span {
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    #bgGray {
+      background-color: $bgColor;
+    }
+
+    input {
+      padding: 5px;
+      border: 1px solid  $bgColor;
+      background-color: $bgColor;
+      font-size: 12px;
+    }
+  }
+
+  #payingDetail :nth-child(7),
+  #payingDetail :nth-child(9) {
+    margin: 10px 0;
+    font-size: 12px;
+  }
+
+  select {
+    border: 1px solid $bgColor;
+    background-color: $bgColor;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #c7c7c7 0), linear-gradient(135deg, #c7c7c7 50%, transparent 0), linear-gradient(90deg, #ccc, #ccc);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 0;
+    background-repeat: no-repeat;
+    padding: 5px;
+    color: $grayColor;
+    font-size: 12px;
+  }
+
+  #payingDetail div:first-child {
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0;
+    margin-bottom: 40px;
+  }
+
+  #payingDetail :nth-child(6) {
+    justify-content: flex-start;
+
+    :first-child {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    > * {
+      font-size: 13px;
+    }
+  }
+}
+
+#tickets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0;
+  width: 100%;
+  color: #141414;
+
+  h3 {
+    font-size: 15px;
+  }
+
+  h1 {
+    letter-spacing: 5px;
+    font-weight: 900;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 10px;
+  }
+
+  #items {
+    width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 10px;
+    overflow-x: scroll;
+    justify-content: center;
+  }
+
+  .ticket {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 20vw;
+    margin: 12px;
+
+    div:first-child {
+      display: flex;
+      height: 180px;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid $lightGray;
+      border-bottom: none;
+      padding: 20px 20px 40px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    div:nth-child(2) {
+      width: 100%;
+      border-top: 4px dotted $lightGray !important;
+      border: 1px solid $lightGray;
+      text-align: center;
+    }
+
+    img {
+      width: 60%;
+    }
+
+    span {
+      font-size: 14px;
+    }
+  }
+}
+
+#noTickets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0;
+  width: 100%;
+  color: #141414;
+  justify-content: space-around;
+
+  img {
+    height: 50%;
+  }
+
+  a {
+    color: $greenColor;
+    font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #login {
+    text-align: center;
+
+    h1 {
+      font-size: 40px;
+    }
+
+    div {
+      flex-direction: column;
+      width: 80%;
+
+      input {
+        padding: 25px;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid $bgColor;
+        color: white;
+      }
+
+      a {
+        width: 100%;
+      }
+
+      button {
+        padding: 20px;
+      }
+    }
+  }
+
+  #app {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+
+  nav {
+    max-height: 100%;
+    width: 0 !important;
+    overflow: hidden;
+    position: unset;
+    height: 0 !important;
+    padding: 0;
+  }
+
+  .movieMenu {
+    padding: 80px 0;
+  }
+
+  #movieSet {
+    flex-direction: column;
+    align-items: center !important;
+
+    button {
+      display: none;
+    }
+  }
+
+  #movie {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  #details {
+    flex-direction: column;
+    padding: 80px 0 20px;
+
+    #payingDetail {
+      width: 100%;
+      padding: 0 40px 20px;
+    }
+  }
+
+  #details #payingDetail div:first-child {
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  #tickets {
+    padding: 80px 0;
+
+    .ticket {
+      width: 100%;
+    }
+  }
+
+  #collapse,
+  #close {
+    border: none;
+    background-color: white;
+  }
+
+  #collapse {
+    width: 25px !important;
+    max-height: 100%;
+    overflow: unset;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  #close {
+    overflow: hidden;
+    max-height: 0;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #app {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+
+  #movieSet {
+    button {
+      display: block;
+    }
+  }
+
+  #collapse,
+  #close {
+    overflow: hidden;
+    max-height: 0;
+    border: none;
+    width: 0;
+  }
+
+  nav {
+    width: 100% !important;
+    height: 95px !important;
+    align-items: center;
+    flex-direction: row;
+    padding: $padding15 !important;
+    background-color: white;
+
+    h1 {
+      padding: 0;
+    }
+
+    ul {
+      flex-direction: row;
+      margin-top: 0;
+    }
+
+    div {
+      flex-direction: row;
+      padding: 0;
+
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .movieMenu,
+  #tickets {
+    padding: 50px 0;
+    overflow-x: scroll;
+  }
+
+  #items {
+    justify-content: center;
+    overflow-x: unset !important;
+  }
+}

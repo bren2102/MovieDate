@@ -1,10 +1,10 @@
 # Movie Date App
 
-Final Project
+This responsive web app uses the [MovieDateApi](https://github.com/bren2102/MovieDateApi) to fetch the movies, cities and tickets per user. A user can login only with his/her user and save a ticket, then can check all the tickets saved on "tickets section".
 
 ## Preview
 
-![Preview](image)
+![Preview](src/assets/moviedate.png)
 
 ## Instructions
 
@@ -24,13 +24,23 @@ To install the project follow these instructions:
 - React
 - React-DOM
 - [React-Create-App](https://github.com/facebook/create-react-app)
+- Redux 
 - npm
 - CSS
 - ES6
 
+## Resource
+
+- [MovieDateApi](https://github.com/bren2102/MovieDateApi)
+
+## Future Work
+
+- Implement transitions to make user experience better
+- Implement locations and snacks page
+
 ## Live Demo
 
-[Live Demo Version](#)
+[Live Demo Version](https://bren2102-moviedate.herokuapp.com/Movies)
 
 ## Author
 
@@ -39,6 +49,10 @@ To install the project follow these instructions:
 - Github: [@bren2102](https://github.com/bren2102) 
 - Twitter: [@BrendaYucra2](https://twitter.com/BrendaYucra)
 - Linkedin: [Brenda Yucra](https://www.linkedin.com/in/brenda-yucra/)
+
+## Credits
+
+- Design: [Vespa-Responsive Redesign](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
 
 ## 🤝 Contributing
 
